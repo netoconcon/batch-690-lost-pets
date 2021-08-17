@@ -1,0 +1,12 @@
+<h1>Pets Encontrado</h1>
+
+<%= link_to "Novo Pet", pets_new_path, class: "btn btn-primary" %>
+
+<% @pets.each do |pet| %>
+  <li>
+    <%= link_to pet.name, pet_path(pet) %>
+    <%= pet.found_on %>
+    <%= link_to "edit", edit_path(pet), class: "btn btn-warning btn-sm" %>
+    <%= link_to "deletar", pet_path(pet), method: :delete, data: { confirm: "Deseja deletar o pet?"} %>
+  </li>
+<% end %>
